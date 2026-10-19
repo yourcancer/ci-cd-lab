@@ -36,6 +36,9 @@ jobs:
       - run: |
           mkdir -p public
           cp index.html public/
+          echo "Pipeline: $GITHUB_RUN_ID" > public/build-info.txt
+          echo "Branch: $GITHUB_REF_NAME" >> public/build-info.txt
+          echo "Commit: $(echo $GITHUB_SHA | cut -c1-7)" >> public/build-info.txt
           echo "Сборка завершена."
       - uses: actions/upload-artifact@v4
         with:
