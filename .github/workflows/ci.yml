@@ -26,6 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sh tests/test.sh
+      - run: sh tests/test_html.sh
 
   build:
     needs: test
